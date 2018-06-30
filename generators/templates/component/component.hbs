@@ -1,0 +1,29 @@
+import * as React from 'react';
+import './styles.css';
+
+{{#if isClass }}
+interface Props {}
+interface State {}
+
+class {{ pascalCase name }}Component extends React.Component<Props, State> {
+
+  constructor (props: Props) {
+    super(props);
+  }
+
+  public render () {
+    return (
+      <div />
+    );
+  }
+
+}
+
+export const {{ pascalCase name }} = {{ pascalCase name }}Component;
+{{else}}
+export const {{ pascalCase name }} = () => {
+  return (
+    <div />
+  );
+};
+{{/if }}
