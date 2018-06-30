@@ -8,7 +8,14 @@ module.exports = {
     title: `Gatsby TypeScript Starter`,
   },
   plugins: [
+
+    // Typescript
     `gatsby-plugin-typescript`,
+
+    // Gatsby CMS
+    `gatsby-plugin-netlify-cms`,
+
+    // PostCSS
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {

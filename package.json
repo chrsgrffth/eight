@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
+    "start": "gatsby develop",
+    "develop": "gatsby develop",
     "build": "gatsby build",
-    "dev": "gatsby develop",
     "generate": "plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
@@ -17,8 +18,10 @@
     "eslint": "^4.19.1",
     "eslint-config-recommended": "^2.0.0",
     "eslint-plugin-react": "^7.7.0",
+    "gatsby-plugin-netlify-cms": "^2.0.1",
     "gatsby-plugin-postcss-sass": "^1.0.21",
     "gatsby-plugin-typescript": "^1.4.19",
+    "netlify-cms": "^1.9.2",
     "plop": "^2.0.0",
     "postcss-import": "^11.1.0",
     "react-helmet": "^5.2.0",
