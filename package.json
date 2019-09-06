@@ -1,0 +1,64 @@
+{
+  "scripts": {
+    "build": "next build",
+    "start": "next",
+    "start:next": "next start",
+    "storybook": "start-storybook",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/styled-components": "^4.1.18",
+    "next": "^9.0.2",
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-spring": "^8.0.27",
+    "styled-components": "^4.3.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/react": "^5.1.11",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.6.8",
+    "@types/react": "^16.8.24",
+    "@types/storybook__react": "^4.0.2",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "^24.9.0",
+    "jest-styled-components": "^6.3.3",
+    "react-docgen-typescript-loader": "^3.2.0",
+    "typescript": "^3.5.3"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setup.ts"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setupAfterEnv.ts"
+    ],
+    "transform": {
+      "\\.tsx?$": "babel-jest"
+    },
+    "testRegex": "\\.test\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/.storybook",
+      "<rootDir>/.next",
+      "<rootDir>/static",
+      "<rootDir>/types"
+    ]
+  }
+}

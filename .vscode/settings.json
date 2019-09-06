@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "node_modules": true,
+    ".next": true,
+    "**/__snapshots__": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

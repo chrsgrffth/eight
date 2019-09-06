@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Grid /> renders a column with required props 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+<Grid>
+  <component__StyledGrid>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "component__StyledGrid-sc-77pnlx-0",
+            "isStatic": false,
+            "lastClassName": "c0",
+            "rules": Array [
+              "display:flex;width:100%;margin:",
+              [Function],
+              ";",
+            ],
+          },
+          "displayName": "component__StyledGrid",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "component__StyledGrid-sc-77pnlx-0",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <div
+        className="c0"
+      />
+    </StyledComponent>
+  </component__StyledGrid>
+</Grid>
+`;
