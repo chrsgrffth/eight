@@ -84,10 +84,6 @@ export class SiteLayout extends React.Component<Props, State> {
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Wrapper>
-            <Header>
-              <HeaderLink href="/">Home</HeaderLink>
-              <HeaderLink href="/about">Info</HeaderLink>
-            </Header>
             <main>{this.props.children}</main>
           </Wrapper>
         </div>

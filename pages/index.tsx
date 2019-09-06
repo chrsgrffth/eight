@@ -28,6 +28,19 @@ const Body = styled.p`
   max-width: 50rem;
 `;
 
+const Header = styled.div`
+  width: 100%;
+  padding: 2vh 0;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HeaderLink = styled.a`
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.5em;
+`;
+
 interface Props {
   clientPos: number[];
 }
@@ -52,20 +65,10 @@ class HomePage extends React.Component<Props, State> {
   public render() {
     return (
       <SiteLayout>
-        {/* <div style={{ marginTop: "40vh", marginBottom: "5vw" }}>
-          <Heading>Currently</Heading>
-          <H1>
-            Building design systems at <a href="/projects/twitch">Twitch</a>.
-          </H1>
-        </div>
-
-        <div style={{ marginBottom: "40vh" }}>
-          <Heading>Studio Work</Heading>
-          <H2>
-            <a href="/projects/paypal">PayPal</a>, <a>CoverHound</a>,{" "}
-            <a>DesignKollective</a>, and <a>Spera Health</a>
-          </H2>
-        </div> */}
+        <Header>
+          <HeaderLink href="/">Home</HeaderLink>
+          <HeaderLink href="/about">Info</HeaderLink>
+        </Header>
       </SiteLayout>
     );
   }
