@@ -75,9 +75,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const SiteTitle = styled.p`
-  font-size: 0.9rem;
+const Header = styled.div`
+  width: 100%;
   padding: 2vh 0;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HeaderLink = styled.a`
+  font-size: 0.9rem;
+  text-decoration: none;
 `;
 
 const Wrapper = styled.div`
@@ -99,11 +106,10 @@ export class SiteLayout extends React.Component<Props, State> {
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Wrapper>
-            <SiteTitle>
-              {/* <a href="/">Christian Griffith</a> */}
-              <a href="/">Home</a>
-              <a href="/about">Info</a>
-            </SiteTitle>
+            <Header>
+              <HeaderLink href="/">Home</HeaderLink>
+              <HeaderLink href="/about">Info</HeaderLink>
+            </Header>
             <main>{this.props.children}</main>
           </Wrapper>
         </div>
