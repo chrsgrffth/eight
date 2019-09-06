@@ -9,14 +9,13 @@ interface Props {
 const StyledGrid = styled.div<Props>`
   display: flex;
   width: 100%;
-  margin: ${props => props.gutter && "0 -0.25rem"};
 `;
 
 export const Grid = (props: Props) => {
   // https://medium.com/better-programming/passing-data-to-props-children-in-react-5399baea0356
-  const columns = React.Children.map(props.children, child => {
+  const columns = React.Children.map(props.children, (child, i) => {
     return React.cloneElement(child as React.ReactElement<any>, {
-      gutter: props.gutter
+      gutter: i > 0 && props.gutter
     });
   });
 

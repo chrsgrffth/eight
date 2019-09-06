@@ -1,7 +1,7 @@
 import { configure, addParameters, addDecorator } from "@storybook/react";
 import { GlobalStyle } from "../components/site-layout";
 
-const req = require.context("../stories", true, /\.tsx$/);
+const req = require.context("../stories", true, /\.story\.tsx$/);
 
 function loadStories() {
   req.keys().forEach(req);

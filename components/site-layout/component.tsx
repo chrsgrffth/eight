@@ -13,6 +13,7 @@ export const ResetStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html,
   body {
     margin: 0;
   }
@@ -31,13 +32,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${GreyScale.Black};
   }
 
-  p {
-    line-height: 1.6;
-    font-weight: 400;
-    font-size: 0.85rem;
-    margin: 0;
-  }
-
   strong {
     font-weight: 500;
   }
@@ -46,33 +40,16 @@ export const GlobalStyle = createGlobalStyle`
     font-size: inherit;
     display: inline-block;
     position: relative;
+  }
 
-    &:before {
-      content: "";
-      display: block;
-      width: 100%;
-      position: absolute;
-      bottom: 0.05em;
-      height: 0.05em;
-      background: ${GreyScale.Grey03};
-      z-index: -1;
-      transition: height 0.17s ease-in;
-      transform: translate3d(0,0,0);
-    }
-
-    &:hover {
-
-      &:before {
-        height: 0.5em;
-      }
-    }
+  p {
+    margin: 0;
   }
 
   h1, h2, h3, h4, h5 {
-    font-weight: 500;
-    font-family: "Reckless TRIAL";
     margin: 0;
   }
+
 `;
 
 const Header = styled.div`
@@ -85,6 +62,7 @@ const Header = styled.div`
 const HeaderLink = styled.a`
   font-size: 0.9rem;
   text-decoration: none;
+  padding: 0.5em;
 `;
 
 const Wrapper = styled.div`

@@ -2,7 +2,6 @@ import * as React from "react";
 import { storiesOf, addDecorator } from "@storybook/react";
 import { Grid } from "../../components/grid";
 import { Column } from "../../components/column";
-import { GlobalStyle } from "../../components/site-layout";
 import styled from "styled-components";
 
 const Debugger = styled.div`
@@ -12,7 +11,7 @@ const Debugger = styled.div`
 `;
 
 storiesOf("Library | Grid", module)
-  .add("Columns", () => (
+  .add("Default", () => (
     <>
       <div style={{ marginBottom: "0.5rem" }}>
         <Grid>

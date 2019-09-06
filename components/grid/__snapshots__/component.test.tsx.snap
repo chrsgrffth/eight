@@ -18,12 +18,10 @@ exports[`<Grid /> renders a column with required props 1`] = `
           "attrs": Array [],
           "componentStyle": ComponentStyle {
             "componentId": "component__StyledGrid-sc-77pnlx-0",
-            "isStatic": false,
+            "isStatic": true,
             "lastClassName": "c0",
             "rules": Array [
-              "display:flex;width:100%;margin:",
-              [Function],
-              ";",
+              "display:flex;width:100%;",
             ],
           },
           "displayName": "component__StyledGrid",

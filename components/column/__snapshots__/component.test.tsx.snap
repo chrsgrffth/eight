@@ -4,7 +4,7 @@ exports[`<Column /> renders a column with optional props 1`] = `
 .c0 {
   width: 8.333333333333332%;
   margin-left: 8.333333333333332%;
-  padding: 0 0.25rem;
+  padding-left: 0.5rem;
 }
 
 <component__Column
@@ -31,7 +31,7 @@ exports[`<Column /> renders a column with optional props 1`] = `
             [Function],
             "%;margin-left:",
             [Function],
-            "%;padding:",
+            "%;padding-left:",
             [Function],
             ";",
           ],
@@ -87,7 +87,7 @@ exports[`<Column /> renders a column with required props 1`] = `
             [Function],
             "%;margin-left:",
             [Function],
-            "%;padding:",
+            "%;padding-left:",
             [Function],
             ";",
           ],

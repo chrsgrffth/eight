@@ -11,7 +11,7 @@ interface Props {
 export const Column = styled.div<Props>`
   width: ${props => (props.columns / 12) * 100}%;
   margin-left: ${props => (props.offset / 12) * 100}%;
-  padding: ${props => props.gutter && "0 0.25rem"};
+  padding-left: ${props => props.gutter && "0.5rem"};
 `;
 
 Column.defaultProps = {
