@@ -1,44 +1,32 @@
 import * as React from "react";
 import styled from "styled-components";
 import { SiteLayout } from "../components/site-layout";
-import { FontSize } from "../types/design";
+import { Grid } from "../components/grid";
+import { Column } from "../components/column";
+import { Wrapper } from "../components/wrapper";
+import { SiteHeader } from "../components/site-header";
 
-const Heading = styled.p`
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-`;
+const Aspect = styled.div`
+  position: relative;
 
-const H1 = styled.h1`
-  font-size: 5.65vw;
-  text-align: justify;
-  text-align-last: justify;
-  -webkit-font-smoothing: antialiased;
-`;
+  * {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-const H2 = styled.h2`
-  font-size: 3.5vw;
-  text-align: justify;
-  text-align-last: justify;
-  -webkit-font-smoothing: antialiased;
-`;
+    background-color: #6441a4;
+    background-image: url("/static/images/displacement-twitch.jpg");
+    background-size: 100% 100%;
+    background-blend-mode: multiply;
+  }
 
-const Body = styled.p`
-  font-size: ${FontSize.Size2};
-  max-width: 50rem;
-`;
-
-const Header = styled.div`
-  width: 100%;
-  padding: 2vh 0;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const HeaderLink = styled.a`
-  font-size: 0.9rem;
-  text-decoration: none;
-  padding: 0.5em;
+  &:before {
+    content: "";
+    display: block;
+    padding-bottom: ${(9 / 21) * 100}%;
+  }
 `;
 
 interface Props {
@@ -65,10 +53,23 @@ class HomePage extends React.Component<Props, State> {
   public render() {
     return (
       <SiteLayout>
-        <Header>
-          <HeaderLink href="/">Home</HeaderLink>
-          <HeaderLink href="/about">Info</HeaderLink>
-        </Header>
+        <SiteHeader />
+        <Wrapper
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexGrow: 1,
+            paddingBottom: "2rem"
+          }}
+        >
+          <Grid>
+            <Column columns={8} offset={2}>
+              <Aspect>
+                <a href="/projects/twitch" />
+              </Aspect>
+            </Column>
+          </Grid>
+        </Wrapper>
       </SiteLayout>
     );
   }

@@ -26,8 +26,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Matter SQ TRIAL", "Arial", sans-serif;
-    font-weight: 400;
+    font-family: "Reckless TRIAL", "Arial", sans-serif;
+    font-weight: 300;
     /* background: ${GreyScale.White}; */
     color: ${GreyScale.Black};
   }
@@ -52,23 +52,12 @@ export const GlobalStyle = createGlobalStyle`
 
 `;
 
-const Header = styled.div`
-  width: 100%;
-  padding: 2vh 0;
+const StyledLayout = styled.div`
   display: flex;
-  justify-content: space-between;
-`;
-
-const HeaderLink = styled.a`
-  font-size: 0.9rem;
-  text-decoration: none;
-  padding: 0.5em;
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 84rem;
-  padding: 0 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 export class SiteLayout extends React.Component<Props, State> {
@@ -82,11 +71,7 @@ export class SiteLayout extends React.Component<Props, State> {
         <ResetStyle />
         <GlobalStyle />
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Wrapper>
-            <main>{this.props.children}</main>
-          </Wrapper>
-        </div>
+        <StyledLayout>{this.props.children}</StyledLayout>
       </>
     );
   }

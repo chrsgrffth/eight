@@ -2,13 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 interface Props {
+  alignItems?: AlignItems;
   children?: React.ReactNode;
   gutter?: boolean;
+}
+
+export enum AlignItems {
+  Baseline = "baseline"
 }
 
 const StyledGrid = styled.div<Props>`
   display: flex;
   width: 100%;
+
+  align-items: ${props => props.alignItems};
 `;
 
 export const Grid = (props: Props) => {
