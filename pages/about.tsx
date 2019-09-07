@@ -12,21 +12,9 @@ interface Props {
   clientPos: number[];
 }
 
-interface State {
-  isMounted: boolean;
-}
-
-class AboutPage extends React.Component<Props, State> {
+class AboutPage extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      isMounted: false
-    };
-  }
-
-  public componentDidMount() {
-    setTimeout(() => this.setState({ isMounted: true }), 100);
   }
 
   public render() {

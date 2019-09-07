@@ -13,7 +13,7 @@ export enum GreyScale {
   Grey02 = "#c9ccd1",
   Grey03 = "#e6e8eb",
   Grey04 = "#edeef0",
-  Grey05 = "f2f3f5",
+  Grey05 = "#f2f3f5",
   White = "#fafafa"
 }
 

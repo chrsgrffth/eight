@@ -4,6 +4,7 @@ import { Grid, AlignItems } from "../../components/grid";
 import { Column } from "../../components/column";
 import { Markdown } from "../../components/markdown";
 import { Wrapper } from "../../components/wrapper";
+import { NavLink } from "../../components/nav-link";
 
 const TwitchPage = () => {
   return (
@@ -12,7 +13,7 @@ const TwitchPage = () => {
         <div style={{ height: "30vh" }} />
         <Grid alignItems={AlignItems.Baseline}>
           <Column columns={5}>
-            <a href="/">Back</a>
+            <NavLink href="/">Back</NavLink>
           </Column>
           <Column columns={6}>
             <h1
@@ -37,7 +38,8 @@ const TwitchPage = () => {
             <Markdown>{content}</Markdown>
             <p style={{ fontSize: "0.75rem" }}>Updated Today</p>
             <p style={{ fontSize: "0.75rem" }}>
-              Back to the roots. SF, CA. &copy; 2019 <a href="/">Credits</a>
+              Back to the roots. SF, CA. &copy; 2019{" "}
+              <a href="/credits">Credits</a>
             </p>
           </Column>
         </Grid>

@@ -12,8 +12,12 @@ const StyledMarkdown = styled.div`
     margin-bottom: 2em;
   }
 
+  strong {
+    font-weight: 400;
+  }
+
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-top: 1em;
     margin-bottom: 1em;
