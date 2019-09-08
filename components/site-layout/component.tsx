@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { GreyScale } from "../../types/design";
+import Head from "next/head";
 
 interface Props {
   children?: any;
@@ -28,7 +29,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Reckless TRIAL", "Arial", sans-serif;
     font-weight: 300;
-    /* background: ${GreyScale.White}; */
     color: ${GreyScale.Black};
   }
 
@@ -60,6 +60,19 @@ const StyledLayout = styled.div`
   min-height: 100vh;
 `;
 
+const Banner = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  background: black;
+  bottom: 0;
+  color: white;
+  border-radius: 1px;
+  box-shadow: 0 1px 8px -1px rgba(0, 0, 0, 0.5);
+  font-size: 0.85rem;
+`;
+
 export class SiteLayout extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -68,10 +81,30 @@ export class SiteLayout extends React.Component<Props, State> {
   public render() {
     return (
       <>
+        <Head>
+          <title>Christian Grifffth</title>
+        </Head>
         <ResetStyle />
         <GlobalStyle />
 
         <StyledLayout>{this.props.children}</StyledLayout>
+
+        {false && (
+          <div
+            style={{
+              position: "fixed",
+              bottom: 0,
+              width: "100%",
+              padding: "1rem"
+            }}
+          >
+            <Banner>
+              <p>
+                I'm available for freelance work on select projects. Learn More.
+              </p>
+            </Banner>
+          </div>
+        )}
       </>
     );
   }

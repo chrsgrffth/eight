@@ -1,7 +1,76 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../wrapper";
 import { NavLink } from "../nav-link";
+import { TweenLite } from "gsap";
+
+interface Props {}
+
+interface State {
+  isMounted: boolean;
+}
+
+export class SiteHeader extends React.Component<Props, State> {
+  public linkElement: HTMLDivElement;
+  public linkElement2: HTMLDivElement;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      isMounted: false
+    };
+  }
+
+  public componentDidMount() {
+    this.setState({ isMounted: true });
+
+    if (this.linkElement) {
+      TweenLite.set([this.linkElement, this.linkElement2], {
+        opacity: 0,
+        y: 10
+      });
+      TweenLite.to([this.linkElement, this.linkElement2], 0.2, {
+        opacity: 1,
+        y: 0
+      }).delay(2);
+    }
+  }
+
+  public render() {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
+        <Wrapper>
+          <StyledHeader>
+            <div
+              ref={ref => (this.linkElement = ref)}
+              style={{
+                visibility: this.state.isMounted ? "visible" : "hidden"
+              }}
+            >
+              <NavLink href="/">Home</NavLink>
+            </div>
+            <div
+              ref={ref => (this.linkElement2 = ref)}
+              style={{
+                visibility: this.state.isMounted ? "visible" : "hidden"
+              }}
+            >
+              <NavLink href="/about">Info/CV</NavLink>
+            </div>
+          </StyledHeader>
+        </Wrapper>
+      </div>
+    );
+  }
+}
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -9,23 +78,3 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
-export const SiteHeader = () => {
-  return (
-    <div
-      style={{
-        position: "fixed",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center"
-      }}
-    >
-      <Wrapper>
-        <StyledHeader>
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">Info</NavLink>
-        </StyledHeader>
-      </Wrapper>
-    </div>
-  );
-};

@@ -14,6 +14,9 @@ import { vertex, fragment } from "./gl";
 import { Power4, TweenLite } from "gsap";
 import Router from "next/router";
 
+const MAIN_IMAGE = "https://images.unsplash.com/photo-1542751371-adc38448a05e";
+const DISP_IMAGE = "https://images.unsplash.com/photo-1542751371-adc38448a05e";
+
 interface Props {
   linkTo?: string;
 }
@@ -37,7 +40,7 @@ const Aspect = styled.div`
   &:before {
     content: "";
     display: block;
-    padding-bottom: ${(9 / 21) * 100}%;
+    padding-bottom: ${(9 / 24) * 100}%;
   }
 `;
 
@@ -59,20 +62,30 @@ export class Effect extends React.Component<Props, State> {
     this.startEffect();
 
     TweenLite.set(this.tween, {
-      width: 1,
-      height: 0,
-      x: 100,
-      opacity: 0
+      width: 0,
+      height: 1,
+      opacity: 0,
+      y: "15vh"
     });
-    TweenLite.to(this.tween, 1, {
-      height: "100%",
-      opacity: 1
-    });
-    TweenLite.to(this.tween, 1, {
-      ease: Power4.easeInOut,
-      width: "100%",
-      x: 0
-    }).delay(1);
+
+    TweenLite.to(this.tween, 1, { opacity: 1, width: "100%" });
+    TweenLite.to(this.tween, 1, { height: "100%", y: 0 }).delay(1);
+
+    // TweenLite.set(this.tween, {
+    //   width: 1,
+    //   height: 0,
+    //   x: 100,
+    //   opacity: 0
+    // });
+    // TweenLite.to(this.tween, 1, {
+    //   height: "100%",
+    //   opacity: 1
+    // });
+    // TweenLite.to(this.tween, 1, {
+    //   ease: Power4.easeInOut,
+    //   width: "100%",
+    //   x: 0
+    // }).delay(1);
   }
 
   public render() {
@@ -102,12 +115,21 @@ export class Effect extends React.Component<Props, State> {
 
     TweenLite.to(this.tween, 1, {
       ease: Power4.easeInOut,
-      width: 0,
-      x: 100,
+      height: 0,
+      y: "15vh",
       onComplete: () => {
         Router.push(this.props.linkTo);
       }
     });
+
+    // TweenLite.to(this.tween, 1, {
+    //   ease: Power4.easeInOut,
+    //   width: 0,
+    //   x: 100,
+    //   onComplete: () => {
+    //     Router.push(this.props.linkTo);
+    //   }
+    // });
   };
 
   private startEffect = () => {
@@ -132,7 +154,7 @@ export class Effect extends React.Component<Props, State> {
     loader.crossOrigin = "";
 
     const texture1 = loader.load(
-      `https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
+      `${MAIN_IMAGE}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
     );
 
     const texture2 = texture1;
@@ -158,7 +180,7 @@ export class Effect extends React.Component<Props, State> {
         disp: {
           type: "t",
           value: loader.load(
-            `https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
+            `${DISP_IMAGE}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
           )
         }
       },

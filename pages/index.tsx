@@ -38,6 +38,8 @@ class HomePage extends React.Component<Props, State> {
           style={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
             flexGrow: 1,
             paddingBottom: "2rem"
           }}
@@ -47,7 +49,6 @@ class HomePage extends React.Component<Props, State> {
               <Effect linkTo="/projects/twitch" />
             </Column>
           </Grid>
-          <p>1/5</p>
         </Wrapper>
       </SiteLayout>
     );

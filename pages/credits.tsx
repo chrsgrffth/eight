@@ -37,6 +37,7 @@ const content = `
 * __[GSAP]()__
 * __[Styled Components]()__
 * __[Blotter]()__
+* __[Storybook]()__
 
 ## Font
 

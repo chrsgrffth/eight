@@ -7,6 +7,8 @@ interface Props {
 }
 
 const StyledMarkdown = styled.div`
+  text-align: justify;
+
   p {
     line-height: 1.7;
     margin-bottom: 2em;
@@ -30,6 +32,10 @@ const StyledMarkdown = styled.div`
 
   ol {
     margin-bottom: 1em;
+  }
+
+  img {
+    max-width: 100%;
   }
 `;
 
