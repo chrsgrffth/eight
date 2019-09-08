@@ -92,7 +92,7 @@ Notes:
 
 ## React
 
-Twitch loaded painfully slowly—even on fast networks. The decision was made at the top to rebuild the entire web client from it's current Ember.js / Ruby on Rails to React—with minimal change to the design. For us, this was the opportunity we were waiting for. The combination of React and TypeScript would allow us to build a powerful library of interface components with strong typing.
+In 2017, Twitch loaded painfully slowly—even on fast networks. The decision was made at the top to rebuild the entire web client from it's current Ember.js / Ruby on Rails to React—with minimal change to the design. For us, this was the opportunity we were waiting for. The combination of React and TypeScript would allow us to build a powerful library of interface components with strong typing.
 
 Notes:
 - remember that functional css library?

@@ -14,18 +14,20 @@ import { vertex, fragment } from "./gl";
 import { Power4, TweenLite } from "gsap";
 import Router from "next/router";
 
-const MAIN_IMAGE = "https://images.unsplash.com/photo-1542751371-adc38448a05e";
 const DISP_IMAGE = "https://images.unsplash.com/photo-1542751371-adc38448a05e";
 
 interface Props {
   linkTo?: string;
+  imgSrc: string;
+  portrait?: boolean;
+  disabled?: boolean;
 }
 
 interface State {
   isMounted: boolean;
 }
 
-const Aspect = styled.div`
+const Aspect = styled.div<{ aspectRatio: number }>`
   position: relative;
 
   * {
@@ -40,13 +42,20 @@ const Aspect = styled.div`
   &:before {
     content: "";
     display: block;
-    padding-bottom: ${(9 / 24) * 100}%;
+    padding-bottom: ${props => props.aspectRatio * 100}%;
   }
 `;
 
 export class Effect extends React.Component<Props, State> {
   public tween: any = [];
   public element: any = [];
+
+  static defaultProps = {
+    aspectRatio: {
+      x: 24,
+      y: 9
+    }
+  };
 
   constructor(props: Props) {
     super(props);
@@ -59,7 +68,7 @@ export class Effect extends React.Component<Props, State> {
   public componentDidMount() {
     this.setState({ isMounted: true });
 
-    this.startEffect();
+    !this.props.disabled && this.startEffect();
 
     TweenLite.set(this.tween, {
       width: 0,
@@ -94,7 +103,7 @@ export class Effect extends React.Component<Props, State> {
     }
 
     return (
-      <Aspect>
+      <Aspect aspectRatio={this.props.portrait ? 16 / 9 : 9 / 24}>
         <a
           onClick={this.handleClick}
           href={this.props.linkTo}
@@ -104,7 +113,11 @@ export class Effect extends React.Component<Props, State> {
           }}
           ref={ref => (this.tween = ref)}
         >
-          <div ref={ref => (this.element = ref)} />
+          {this.props.disabled ? (
+            <img src={this.props.imgSrc} />
+          ) : (
+            <div ref={ref => (this.element = ref)} />
+          )}
         </a>
       </Aspect>
     );
@@ -154,7 +167,13 @@ export class Effect extends React.Component<Props, State> {
     loader.crossOrigin = "";
 
     const texture1 = loader.load(
-      `${MAIN_IMAGE}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
+      `${
+        this.props.imgSrc
+      }?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop${
+        this.props.portrait
+          ? `&h=${this.element.offsetHeight}`
+          : `&w=${this.element.offsetWidth}`
+      }&q=80`
     );
 
     const texture2 = texture1;
@@ -180,8 +199,17 @@ export class Effect extends React.Component<Props, State> {
         disp: {
           type: "t",
           value: loader.load(
-            `${DISP_IMAGE}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
+            `${
+              this.props.imgSrc
+            }?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop${
+              this.props.portrait
+                ? `&h=${this.element.offsetHeight}`
+                : `&w=${this.element.offsetWidth}`
+            }&q=80`
           )
+          // value: loader.load(
+          //   `${DISP_IMAGE}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${this.element.offsetWidth}&q=80`
+          // )
         }
       },
       vertexShader: vertex,
@@ -190,7 +218,11 @@ export class Effect extends React.Component<Props, State> {
       opacity: 1
     });
 
-    var geometry = new PlaneBufferGeometry(700, 400, 1);
+    var geometry = new PlaneBufferGeometry(
+      this.element.offsetWidth,
+      this.element.offsetHeight,
+      1
+    );
     var object = new Mesh(geometry, material);
 
     scene.add(object);

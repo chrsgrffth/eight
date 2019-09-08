@@ -49,22 +49,12 @@ export class SiteHeader extends React.Component<Props, State> {
       >
         <Wrapper>
           <StyledHeader>
-            <div
-              ref={ref => (this.linkElement = ref)}
-              style={{
-                visibility: this.state.isMounted ? "visible" : "hidden"
-              }}
-            >
-              <NavLink href="/">Home</NavLink>
-            </div>
-            <div
-              ref={ref => (this.linkElement2 = ref)}
-              style={{
-                visibility: this.state.isMounted ? "visible" : "hidden"
-              }}
-            >
-              <NavLink href="/about">Info/CV</NavLink>
-            </div>
+            <NavLink href="/" animationDelay={2}>
+              Home
+            </NavLink>
+            <NavLink href="/about" animationDelay={2}>
+              Info/CV
+            </NavLink>
           </StyledHeader>
         </Wrapper>
       </div>

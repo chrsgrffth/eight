@@ -20,56 +20,55 @@ class AboutPage extends React.Component<Props> {
     return (
       <SiteLayout>
         <SiteHeader />
-        <div style={{ marginTop: "50vh" }}>
-          <Wrapper>
-            <Grid>
-              <Column columns={6}>
-                <Markdown>{content}</Markdown>
-              </Column>
-              <Column columns={5} offset={1}>
-                <div style={{ marginBottom: "5vh", lineHeight: 1.7 }}>
-                  <p>
-                    <strong>Experience</strong>
-                  </p>
-                  <p>
-                    <a href="//twitch.tv">Twitch</a>, Senior Front-End Engineer
-                  </p>
-                  <p>
-                    <a href="//octopuscreative.com/">Octopus Creative</a>, UI/UX
-                    Designer/Developer
-                  </p>
-                  <p>Terra Eclipse, UI/UX Designer/Developer</p>
-                  <p>
-                    Information Management Services, Inc., Front-End
-                    Designer/Developer
-                  </p>
-                </div>
+        <Wrapper>
+          <div style={{ marginTop: "50vh " }}></div>
+          <Grid>
+            <Column columns={6}>
+              <Markdown>{content}</Markdown>
+            </Column>
+            <Column columns={5} offset={1}>
+              <div style={{ marginBottom: "5vh", lineHeight: 1.7 }}>
+                <p>
+                  <strong>Experience</strong>
+                </p>
+                <p>
+                  <a href="//twitch.tv">Twitch</a>, Senior Front-End Engineer
+                </p>
+                <p>
+                  <a href="//octopuscreative.com/">Octopus Creative</a>, UI/UX
+                  Designer/Developer
+                </p>
+                <p>Terra Eclipse, UI/UX Designer/Developer</p>
+                <p>
+                  Information Management Services, Inc., Front-End
+                  Designer/Developer
+                </p>
+              </div>
 
-                <div style={{ marginBottom: "5vh" }}>
-                  <p>
-                    <strong>Writing</strong>
-                  </p>
-                  <p>
-                    <a>Custom Mobile Applications for Field Data Collection</a>
-                  </p>
-                </div>
+              <div style={{ marginBottom: "5vh" }}>
+                <p>
+                  <strong>Writing</strong>
+                </p>
+                <p>
+                  <a>Custom Mobile Applications for Field Data Collection</a>
+                </p>
+              </div>
 
-                <div style={{ marginBottom: "5vh" }}>
-                  <p>
-                    <strong>Contact</strong>
-                  </p>
-                  <p>
-                    <a>chris@chrisgriffith.co</a>
-                  </p>
+              <div style={{ marginBottom: "5vh" }}>
+                <p>
+                  <strong>Contact</strong>
+                </p>
+                <p>
+                  <a>chris@chrisgriffith.co</a>
+                </p>
 
-                  <p style={{ fontSize: "0.75rem", color: GreyScale.Grey01 }}>
-                    I am currently available for freelance consultation.
-                  </p>
-                </div>
-              </Column>
-            </Grid>
-          </Wrapper>
-        </div>
+                <p style={{ fontSize: "0.75rem", color: GreyScale.Grey01 }}>
+                  I am currently available for freelance consultation.
+                </p>
+              </div>
+            </Column>
+          </Grid>
+        </Wrapper>
       </SiteLayout>
     );
   }
