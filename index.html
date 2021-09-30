@@ -26,6 +26,12 @@
       transition: 0.1s color ease-in;
     }
 
+    h1,
+    p, 
+    div {
+      line-height: 1.5;
+    }
+
     a:hover,
     a:focus {
       color: currentColor;
@@ -50,6 +56,7 @@
       min-height: 100vh;
       padding: 0;
       margin: 0;
+      line-height: 1.5;
     }
 
     /* Page Layout */
@@ -64,7 +71,6 @@
 
     .page-content {
       font-size: 2rem;
-      line-height: 1.5;
       max-width: 54rem;
     }
 
@@ -72,7 +78,6 @@
     .header {
       min-height: 30vh;
       flex-grow: 1;
-      line-height: 1.5;
     }
 
     .header-title {
@@ -137,7 +142,7 @@
 
     /* Footer */
     .footer {
-      padding-top: 10vh;
+      padding-top: 8vh;
       font-size: 1.75rem;
     }
 
@@ -156,6 +161,14 @@
 
     .footer-meta-link {
       padding: 1rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      h1,
+      p, 
+      div {
+        line-height: 1.2;
+      }
     }
 
     @keyframes out-and-in {
